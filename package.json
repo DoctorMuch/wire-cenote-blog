@@ -2,7 +2,7 @@
   "name": "wire-cenote-blog",
   "version": "1.0.0",
   "description": "A blog template for keeping up with and publishing thoughts on tech developments.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
