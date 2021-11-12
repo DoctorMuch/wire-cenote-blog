@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class User extends Model {};
+class User extends Model {}
 
 User.init( 
   {
@@ -23,9 +23,11 @@ User.init(
       validate: {
         len: [4]
       }
-    },
+    }
+  },
+  {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'user'
