@@ -19,6 +19,10 @@ router.get('/:id', (req, res) => {
   Post.findOne({
       where: {
         id: req.params.id
+      },
+      include: {
+        model: User,
+        attributes: ['username']
       }
     })
     .then(dbPostData => res.json(dbPostData))
