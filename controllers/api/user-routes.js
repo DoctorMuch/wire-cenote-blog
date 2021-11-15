@@ -43,7 +43,15 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   User.create(req.body, {
   })
-  .then(dbUserData => res.json(dbUserData))
+  .then(dbUserData => { 
+    req.session.save(() => {
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json(dbUserData);
+    });
+  })
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -53,7 +61,7 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username
+      email: req.body.email
     }
   })
   .then(dbUserData => {
@@ -74,6 +82,17 @@ router.post('/login', (req, res) => {
       res.json({ user: dbUserData, message: 'You are now logged in! '});
     });
   });
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      console.log('You have logged out.')
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
 });
 
 router.put('/:id', (req, res) => {

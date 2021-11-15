@@ -3,7 +3,7 @@
   --secondary: #9caea9;
   --tertiary: #788585;
   --light-dark: #6f6866;
-  --dark: #38302e;
+  --dark: #14100f;
   --border-radius: .3rem;
 }
 
@@ -13,8 +13,8 @@
 
 body {
   background-color: var(--primary);
-  margin: 0;
-  padding: 0;
+  margin: 10px;
+  padding: 10px;
   font-family: "IBM Plex Sans", sans-serif;
   color: var(--dark);
   line-height: 1.5;
@@ -42,11 +42,15 @@ p {
   font-size: 1.2rem;
 }
 
- .btn {
-  font-size: 1.3rem;
+nav a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.btn {
+  font-size: 1rem;
   text-decoration:none;
   padding: 6px 5px;
-  width: 100%;
+  width: 85%;
   display: block;
   margin: 5px 0;
   border-radius: var(--border-radius);
@@ -101,9 +105,12 @@ p {
 .hero p {
   max-width: 75%;
 }
-
-.app-title {
+.space-between {
+  justify-content: space-between;
+}
+.app-title a {
   font-size: 3rem;
+  text-decoration: none;
   background-color: var(--primary);
   color: var(--dark);
   padding: 0 10px;
@@ -176,7 +183,7 @@ p {
 }
 
 .form-input {
-  width: 100%;
+  width: 95%;
   padding: 3%;
   margin: 5px 0;
   font-size: 1.2rem;
